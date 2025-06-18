@@ -1,8 +1,3 @@
-Here’s a complete and well-structured `README.md` file for your **Django Gaming Top-Up Management System** project:
-
----
-
-```markdown
 # 🎮 Gaming Top-Up Management System
 
 A Django-based web application for managing gaming top-up products, handling user orders, and providing a smooth user experience with login/signup, dashboard, and RESTful APIs.
@@ -147,7 +142,8 @@ Content-Type: application/json
 
 ## 📸 Screenshots
 
-> Add screenshots of your login, dashboard, and top-up order page if required.
+![Uploading image.png…]()
+
 
 ---
 
