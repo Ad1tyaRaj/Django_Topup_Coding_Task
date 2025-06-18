@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background: linear-gradient(to right, skyblue, purple);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: white;
+  }
+
+  .container {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 900px;
+  }
+
+  .signup-form {
+    flex: 1;
+    padding: 40px;
+  }
+
+  .instructions {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .instructions h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .instructions p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .signup-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .signup-form label {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .signup-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+  }
+
+  .signup-form button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 10px;
+    background-color: #00b894;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .signup-form button:hover {
+    background-color: #019875;
+  }
+
+  .error-message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .instructions {
+      padding: 20px;
+    }
+
+    .signup-form {
+      padding: 20px;
+    }
+  }

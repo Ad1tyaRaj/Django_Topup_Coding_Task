@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up | Gaming Top-Up</title>
+  <link rel="stylesheet" href="{% static 'css/Signup.css' %}">
+</head>
+<body>
+
+<div class="container">
+  <div class="signup-form">
+    <h2>Create Account</h2>
+    <div class="error-message" id="error">All fields are required and passwords must match.</div>
+    <form method="POST" action="{% url 'signup' %}">
+      {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password1">Password</label>
+      <input type="password" id="password1" name="password1" required>
+
+      <label for="password2">Confirm Password</label>
+      <input type="password" id="password2" name="password2" required>
+
+      <button type="submit">Sign Up</button>
+
+        <p style="text-align: center; margin-top: 15px;">
+        Already have an account?
+        <a href="/login/" style="color: #00ffe1; text-decoration: underline;">Login here</a>
+        </p>
+
+    </form>
+  </div>
+
+  <div class="instructions">
+    <h2>🎮 Game Top-Up Instructions</h2>
+    <p>
+      ➤ Register a free account to top up your favorite games.<br><br>
+      ➤ After signing up, log in to view available products.<br><br>
+      ➤ Choose your game, select a top-up pack, and complete your payment.<br><br>
+      ➤ Track your top-up order status on the dashboard.
+    </p>
+  </div>
+</div>
+
+<script src="{% static 'js/Signup.js' %}"></script>
+
+</body>
+</html>

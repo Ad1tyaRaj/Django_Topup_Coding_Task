@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Game Top-Up</title>
+  <link rel="stylesheet" href="{% static 'css/Login.css' %}">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="login-form">
+    <h2>Login to Game Top-Up</h2>
+    <div class="error-message" id="error">Please enter username and password.</div>
+    <form id="loginForm" method="post">
+      {% csrf_token %}
+      <label for="username">Username or Email</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+
+      <p style="text-align: center; margin-top: 15px;">
+        Don't have an account?
+        <a href="/signup/" style="color: #00ffe1; text-decoration: underline;">Sign up here</a>
+      </p>
+
+    </form>
+  </div>
+
+  <div class="instructions">
+    <h2>🎮 Game Top-Up Instructions</h2>
+    <p>
+      ➤ Login with your registered account to access top-up options.<br><br>
+      ➤ If you don’t have an account, please sign up first.<br><br>
+      ➤ Once logged in, select your favorite game and choose a top-up pack.<br><br>
+      ➤ Ensure payment is successful to receive in-game currency instantly.
+    </p>
+  </div>
+</div>
+
+<script src="{% static 'js/Login.js' %}"></script>
+
+</body>
+</html>

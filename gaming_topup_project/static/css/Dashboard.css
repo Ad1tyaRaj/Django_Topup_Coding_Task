@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #87cefa, #800080);
+    color: #fff;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+  }
+
+  .navbar h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar li {
+    margin-left: 20px;
+  }
+
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  .profile .avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .header {
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    opacity: 0.6;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container .card:nth-child(3) {
+      grid-column: span 2;
+    }
+  }

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="hi">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamePay - Instant Game Top-Up</title>
+    <link rel="stylesheet" href="{% static 'css/Base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Header -->
+<header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">🎮 GamePay</div>
+  
+        {% if request.user.is_superuser %}
+          <ul class="nav-links">
+            <li><a href="{% url 'Base' %}">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="{% url 'topup-api' %}">APIs</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          </ul>
+          <a href="{% url 'logout' %}" class="user-profile" style="text-decoration: none; color: inherit;">
+            <div class="avatar">{{ request.user.username|slice:":1"|upper }}</div>
+            <span>{{ request.user.username }}</span>
+          </a>
+  
+        {% elif request.user.is_authenticated %}
+          <ul class="nav-links">
+            <li><a href="{% url 'Base' %}">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+          </ul>
+          <a href="{% url 'logout' %}" class="user-profile" style="text-decoration: none; color: inherit;">
+            <div class="avatar">{{ request.user.username|slice:":1"|upper }}</div>
+            <span>{{ request.user.username }}</span>
+          </a>
+  
+        {% else %}
+          <ul class="nav-links">
+            <li><a href="{% url 'Base' %}">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="#support">Support</a></li>
+          </ul>
+          <a href="{% url 'login' %}" class="user-profile" style="text-decoration: none; color: inherit;">
+            <div class="avatar">G</div>
+            <span>Login</span>
+          </a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Instant Game Top-Up</h1>
+            <p>Top-up your games in the fastest and safest way</p>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search for your game or enter your Player ID...">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Games -->
+    <section class="popular-games">
+        <div class="container">
+            <h2 class="section-title">Popular Games</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon">FF</div>
+                    <div class="game-name">Free Fire</div>
+                    <div class="game-category">Battle Royale</div>
+                    <button class="topup-btn">Top-Up </button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">PG</div>
+                    <div class="game-name">PUBG Mobile</div>
+                    <div class="game-category">Battle Royale</div>
+                    <button class="topup-btn">Top-Up </button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">ML</div>
+                    <div class="game-name">Mobile Legends</div>
+                    <div class="game-category">MOBA</div>
+                    <button class="topup-btn">Top-Up </button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">CR</div>
+                    <div class="game-name">Clash Royale</div>
+                    <div class="game-category">Strategy</div>
+                    <button class="topup-btn">Top-Up </button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">COD</div>
+                    <div class="game-name">Call of Duty</div>
+                    <div class="game-category">FPS</div>
+                    <button class="topup-btn">Top-Up </button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">AS</div>
+                    <div class="game-name">Among Us</div>
+                    <div class="game-category">Social Deduction</div>
+                    <button class="topup-btn">Top-Up </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose GamePay?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Instant Delivery</h3>
+                    <p>24/7 automatic delivery within seconds</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">100% Secure</h3>
+                    <p>Bank-level security for all transactions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Best Prices</h3>
+                    <p>Lowest prices guaranteed with exclusive offers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <h3 class="feature-title">Bonus Rewards</h3>
+                    <p>Earn cashback and bonus credits on every purchase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Top-up -->
+    <section class="quick-topup">
+        <div class="container">
+            <h2 class="section-title">Quick Top-Up</h2>
+            <div class="topup-form">
+                <div class="form-group">
+                    <label class="form-label">Select Game</label>
+                    <select class="form-input">
+                        <option>Free Fire</option>
+                        <option>PUBG Mobile</option>
+                        <option>Mobile Legends</option>
+                        <option>Call of Duty</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Player ID</label>
+                    <input type="text" class="form-input" placeholder="Enter your Player ID">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Select Amount</label>
+                    <div class="amount-options">
+                        <button class="amount-btn">₹50</button>
+                        <button class="amount-btn active">₹100</button>
+                        <button class="amount-btn">₹250</button>
+                        <button class="amount-btn">₹500</button>
+                        <button class="amount-btn">₹1000</button>
+                        <button class="amount-btn">₹2000</button>
+                    </div>
+                </div>
+                <button class="submit-btn">Proceed to Payment</button>
+            </div>
+        </div>
+    </section>
+<!-- Footer -->
+<footer class="footer" style="background-color: #1e1e2f; color: #fff; padding: 40px 0; font-family: 'Segoe UI', sans-serif;">
+    <div class="container" style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+      
+      <!-- About -->
+      <div style="flex: 1; min-width: 200px;">
+        <h3 style="margin-bottom: 15px;">🎮 GamePay</h3>
+        <p>GamePay is your one-stop solution for fast and secure top-ups across all your favorite games. Enjoy seamless gaming experiences with us!</p>
+      </div>
+  
+      <!-- Quick Links -->
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 15px;">Quick Links</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li><a href="{% url 'Base' %}" style="color: #ccc; text-decoration: none;">Home</a></li>
+          <li><a href="{% url 'dashboard' %}" style="color: #ccc; text-decoration: none;">Dashboard</a></li>
+          <li><a href="#games" style="color: #ccc; text-decoration: none;">Games</a></li>
+          <li><a href="#support" style="color: #ccc; text-decoration: none;">Support</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact Info -->
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 15px;">Contact Us</h4>
+        <p>Email: <a href="mailto:support@gamepay.com" style="color: #ccc; text-decoration: none;">support@gamepay.com</a></p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: New Delhi, India</p>
+      </div>
+  
+      <!-- Social Links -->
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 15px;">Follow Us</h4>
+        <div style="font-size: 20px;">
+          <a href="#" style="color: #ccc; margin-right: 15px;"><i class="fab fa-facebook"></i></a>
+          <a href="#" style="color: #ccc; margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+          <a href="#" style="color: #ccc; margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+          <a href="#" style="color: #ccc;"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- Bottom -->
+    <div style="text-align: center; margin-top: 30px; border-top: 1px solid #444; padding-top: 20px; color: #aaa;">
+        <p>&copy; 2025 <strong>GamePay</strong>. All rights reserved. Crafted with ❤️ by <strong>Adi</strong>.</p>
+    </div>
+  </footer>
+  
+    <script src="{% static 'js/Base.js' %}"></script>
+</body>
+</html>
