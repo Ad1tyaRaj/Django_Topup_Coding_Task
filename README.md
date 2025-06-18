@@ -1,4 +1,6 @@
 # 🎮 Gaming Top-Up Management System
+![Screenshot 2025-06-18 193732](https://github.com/user-attachments/assets/4cb90796-7bab-4060-b3cc-e45496140466)
+
 
 A Django-based web application for managing gaming top-up products, handling user orders, and providing a smooth user experience with login/signup, dashboard, and RESTful APIs.
 
@@ -142,7 +144,8 @@ Content-Type: application/json
 
 ## 📸 Screenshots
 
-![Uploading image.png…]()
+![Screenshot 2025-06-18 193732](https://github.com/user-attachments/assets/7a476296-1685-4c41-9183-6ef9aef0efc1)
+
 
 
 ---
